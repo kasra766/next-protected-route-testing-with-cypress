@@ -1,10 +1,11 @@
 import BrowserStorage from "./browserStorage";
 
-interface userInfoType {
+export interface userInfoType {
   name: string;
   lname: string;
-  phone: number;
+  phone: string;
   email: string;
+  password: string;
 }
 
 interface tokenType {

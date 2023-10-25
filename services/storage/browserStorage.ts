@@ -13,4 +13,4 @@ class BrowserStorage<T> {
   }
 }
 
-export default BrowserStorage
+export default BrowserStorage;

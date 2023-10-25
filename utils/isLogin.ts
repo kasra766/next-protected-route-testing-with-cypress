@@ -1,4 +1,4 @@
-import { login } from "@/storage";
+import { login } from "@/services/storage";
 
 export function isLogin() {
   const { userToken } = login.get();

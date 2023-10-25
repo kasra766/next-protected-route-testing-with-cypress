@@ -1,4 +1,3 @@
-export default function LoginPage(){
-
-    return <div>this is login page and this not protected</div>
+export default function LoginPage() {
+  return <div>login page</div>;
 }
