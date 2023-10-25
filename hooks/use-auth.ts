@@ -1,6 +1,7 @@
-import { isLogin } from "@/utils/isLogin";
-import { redirect } from "next/navigation";
 import { useLayoutEffect } from "react";
+import { redirect } from "next/navigation";
+
+import { isLogin } from "@/utils/isLogin";
 
 export function useAuth() {
   const userIsLogin = isLogin();
@@ -9,5 +10,5 @@ export function useAuth() {
     if (!userIsLogin) {
       redirect("/login");
     }
-  }, [userIsLogin]);
+  }, []);
 }
