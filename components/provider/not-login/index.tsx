@@ -1,8 +1,8 @@
 "use client";
 
-import { useIsLogin } from "@/hooks/use-auth";
+import { useAuth } from "@/hooks/use-auth";
 
 export function ProtectRoute({ children }: { children: React.ReactNode }) {
-  useIsLogin();
+  useAuth();
   return <div>{children}</div>;
 }

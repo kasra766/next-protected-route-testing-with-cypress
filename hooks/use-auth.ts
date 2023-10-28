@@ -12,3 +12,13 @@ export function useAuth() {
     }
   }, []);
 }
+
+export function useIsLogin() {
+  const userIsLogin = isLogin();
+
+  useLayoutEffect(() => {
+    if (userIsLogin) {
+      redirect("/home");
+    }
+  }, []);
+}

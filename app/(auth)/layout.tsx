@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "@mui/material";
 
 import { AppBar } from "@/components/app-bar";
+import { ProtectRoute } from "@/components/provider/login";
 
 export default function LayoutLogin({
   children,
@@ -27,7 +28,9 @@ export default function LayoutLogin({
         </Button>
       </AppBar>
 
-      <main className="mb-auto flex justify-center">{children}</main>
+      <main className="mb-auto flex justify-center">
+        <ProtectRoute>{children}</ProtectRoute>
+      </main>
       <footer>footer</footer>
     </div>
   );
