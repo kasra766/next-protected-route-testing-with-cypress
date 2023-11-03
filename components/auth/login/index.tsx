@@ -1,10 +1,11 @@
 "use client";
 import { Button, Paper } from "@mui/material";
-import { FormField } from "../text-field";
+import { FormField } from "../../text-field";
 import { useSubmit } from "./use-submit";
 
-export function SignUp() {
+export function Login() {
   const { control, handleSubmit, submit } = useSubmit();
+
   return (
     <Paper
       component="form"
@@ -16,40 +17,13 @@ export function SignUp() {
         autoFocus
         fullWidth
         control={control}
-        name="name"
+        name="userName"
         rules={{ required: true }}
         type="text"
-        label="Name"
-        className="col-span-2"
-      />
-      <FormField
-        fullWidth
-        control={control}
-        name="lname"
-        rules={{ required: true }}
-        type="text"
-        label="Last Name"
-        className="col-span-2"
+        label="User Name"
+        className="col-span-full"
       />
 
-      <FormField
-        fullWidth
-        control={control}
-        name="phone"
-        rules={{ required: true }}
-        type="tel"
-        label="Phone Number"
-        className="col-span-full"
-      />
-      <FormField
-        fullWidth
-        control={control}
-        name="email"
-        rules={{ required: true }}
-        type="email"
-        label="Email"
-        className="col-span-full"
-      />
       <FormField
         fullWidth
         control={control}
