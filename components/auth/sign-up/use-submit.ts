@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 
-import { type userInfoType } from "@/services/storage";
+import { login, type userInfoType } from "@/services/storage";
+import { redirect } from "next/navigation";
 
 export function useSubmit() {
   const { control, handleSubmit } = useForm({
@@ -14,16 +15,22 @@ export function useSubmit() {
   });
 
   async function submit(data: userInfoType) {
-    const res = await fetch("/api/sign-up", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    try {
+      const res = await fetch("/api/sign-up", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const dataResponse = await res.json();
+      console.log(JSON.parse(dataResponse.data));
 
-    const dataRes = await res.json();
-    console.log(dataRes);
+      login.set(JSON.parse(dataResponse.data));
+      redirect("/home");
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   return { control, handleSubmit, submit };
