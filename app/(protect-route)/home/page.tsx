@@ -1,4 +1,3 @@
-export default function HomePage(){
-
-    return <div>this is a protected page</div>
+export default function HomePage() {
+  return <div>this is home page that is protected by token</div>;
 }
