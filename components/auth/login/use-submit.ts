@@ -1,4 +1,7 @@
+import { postFetch } from "@/services/api";
+import { redirect } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { login } from "@/services/storage";
 
 interface userLogin {
   userName: string;
@@ -14,16 +17,10 @@ export function useSubmit() {
   });
 
   async function submit(data: userLogin) {
-    const res = await fetch("/api/login", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    const dataRes = await res.json();
-    console.log(dataRes);
+    const res = await postFetch("/api/sign-up", data);
+    const dataResponse = await res.json();
+    login.set(JSON.parse(dataResponse.data));
+    redirect("/home");
   }
 
   return { control, handleSubmit, submit };
